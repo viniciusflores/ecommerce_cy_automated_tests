@@ -20,7 +20,7 @@ Run all Tests
 > yarn test
 
 Run all Tests and generate report
-> yarn test+report
+> yarn test+reportComplete
 
 To see the Cypress Dashboard
 > yarn open
