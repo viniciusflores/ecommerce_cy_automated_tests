@@ -11,7 +11,8 @@
     "cy:clearReport": "rm -rf index.json mochawesome-report/ cypress/results/ cypress/screenshots cypress/videos",
     "cy:reportMerge": "mochawesome-merge 'cypress/results/*.json' > index.json",
     "cy:reportGenerate": "marge index.json",
-    "test+reportComplete":"yarn cy:clearReport && yarn cy:TestWithreport && yarn cy:reportMerge && yarn cy:reportGenerate"
+    "test+reportComplete":"yarn cy:clearReport && yarn cy:TestWithreport && yarn cy:reportMerge && yarn cy:reportGenerate",
+    "githubActionsJob":"npm run cy:clearReport && npm run cy:TestWithreport && npm run cy:reportMerge && npm run cy:reportGenerate"
   },
   "devDependencies": {
     "cypress": "5.3.0",
