@@ -1,13 +1,13 @@
 {
-  "name": "ecommerce_automated_tests",
+  "name": "ecommerce_cy_automated_tests",
   "version": "1.0.0",
-  "repository": "https://github.com/viniciusflores/ecommerce_automated_tests.git",
+  "repository": "https://github.com/viniciusflores/ecommerce_cy_automated_tests.git",
   "author": "Vinicius Flores <viniciusflores379@gmail.com>",
   "license": "MIT",
   "scripts": {
     "open": "cypress open",
-    "test": "cypress run",
-    "cy:TestWithreport": "cypress run --reporter mochawesome",
+    "test": "cypress run --record --key 675a0070-9e10-420a-9e07-729844d92646",
+    "cy:TestWithreport": "cypress run --reporter mochawesome --record --key 675a0070-9e10-420a-9e07-729844d92646",
     "cy:clearReport": "rm -rf index.json mochawesome-report/ cypress/results/ cypress/screenshots cypress/videos",
     "cy:reportMerge": "mochawesome-merge 'cypress/results/*.json' > index.json",
     "cy:reportGenerate": "marge index.json",
