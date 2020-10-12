@@ -8,6 +8,10 @@ This project use [Cypress](https://cypress.io/) to testing [ecommerce](http://au
 [Node](https://nodejs.org/en/)
 [Yarn](https://yarnpkg.com/)
 
+## App Health
+
+[![ecommerce_cy_automated_tests](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/xefqmu/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/xefqmu/runs)
+
 ## How to test
 
 Clone project:
