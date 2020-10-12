@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+import page from '../../support/pageLocators';
+
 describe('first access, use existent user, buy a item', () => {
   it('create a user account', () => {
     // access page
@@ -7,38 +9,41 @@ describe('first access, use existent user, buy a item', () => {
     cy.title().should('be.equal', 'My Store');
 
     // search item
-    cy.get('#search_query_top').clear().type('t-shirt{enter}');
-    cy.get("a.product-name[title='Faded Short Sleeve T-shirts']").click();
+    cy.get(page.HOME.SEARCH_BAR).clear().type('t-shirt{enter}');
 
-    cy.get('#add_to_cart').click();
-    cy.get('.icon-ok').should('be.visible');
-    cy.get('a.btn[title="Proceed to checkout"]').click();
+    cy.get(
+      page.HOME.FN_LINK_PRODUCT_IN_SEARCH_RESULT('Faded Short Sleeve T-shirts'),
+    ).click();
 
-    cy.get('li.step_current.first').should('be.visible');
-    cy.get('a.standard-checkout[title="Proceed to checkout"]').click();
+    cy.get(page.PRODUCT_DETAIL.ADD_TO_CART).click();
+    cy.get(page.PRODUCT_DETAIL.MODAL_CART.ICON_SUCCESS).should('be.visible');
+    cy.get(page.PRODUCT_DETAIL.MODAL_CART.PROCEED_TO_CHECKOUT).click();
 
-    cy.get('li.step_current.second').should('be.visible');
-    cy.get('#email').type('zenviaproject@email.com');
-    cy.get('#passwd').type('P@ssw0rd');
-    cy.get('#SubmitLogin').click();
+    cy.get(page.ORDER.TAB.SUMMARY).should('be.visible');
+    cy.get(page.ORDER.PROCEED_SUMMARY).click();
 
-    cy.get('li.step_current.third').should('be.visible');
-    cy.get('button[name="processAddress"]').click();
+    cy.get(page.ORDER.TAB.SIGN_IN).should('be.visible');
+    cy.get(page.SIGN_IN.USERNAME).type('zenviaproject@email.com');
+    cy.get(page.SIGN_IN.PASSWORD).type('P@ssw0rd');
+    cy.get(page.SIGN_IN.SUBMIT_LOGIN).click();
 
-    cy.get('li.step_current.four').should('be.visible');
-    cy.get('#uniform-cgv').click();
-    cy.get('button[name="processCarrier"]').click();
+    cy.get(page.ORDER.TAB.ADDRESS).should('be.visible');
+    cy.get(page.ORDER.PROCEED_ADDRESS).click();
 
-    cy.get('li.step_current.last').should('be.visible');
-    cy.get('.bankwire').click();
+    cy.get(page.ORDER.TAB.SHIPPING).should('be.visible');
+    cy.get(page.ORDER.TERMS_OF_SERVICE).click();
+    cy.get(page.ORDER.PROCEED_SHIPPING).click();
 
-    cy.get('.page-subheading').should('contain', 'Bank-wire payment');
-    // .then(text => {
-    //   assert.equal(text, 'BANK-WIRE PAYMENT.');
-    // });
+    cy.get(page.ORDER.TAB.PAYMENT).should('be.visible');
+    cy.get(page.ORDER.PAYMENT.BANK).click();
 
-    cy.get('button.button.btn.btn-default.button-medium').click();
-    cy.get('.cheque-indent').should(
+    cy.get(page.ORDER.PAYMENT.BANK_DESCRIPTION).should(
+      'contain',
+      'Bank-wire payment',
+    );
+
+    cy.get(page.ORDER.PROCEED_PAYMENT).click();
+    cy.get(page.ORDER.PAYMENT.BANK_MSG_SUCCESS).should(
       'contain',
       'Your order on My Store is complete.',
     );
