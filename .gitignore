@@ -18,3 +18,10 @@ node_modules/
 
 # cypress
 x_cypress_initial_files
+
+# cypress reports
+cypress/results/
+cypress/screenshots/
+cypress/videos/
+index.json
+mochawesome-report/
