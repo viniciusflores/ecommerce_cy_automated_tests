@@ -8,7 +8,7 @@
     "open": "cypress open",
     "test": "cypress run",
     "cy:TestWithreport": "cypress run --reporter mochawesome",
-    "cy:clearReport": "rm -rf index.json mochawesome-report/ cypress/results/",
+    "cy:clearReport": "rm -rf index.json mochawesome-report/ cypress/results/ cypress/screenshots cypress/videos",
     "cy:reportMerge": "mochawesome-merge 'cypress/results/*.json' > index.json",
     "cy:reportGenerate": "marge index.json",
     "test+reportComplete":"yarn cy:clearReport && yarn cy:TestWithreport && yarn cy:reportMerge && yarn cy:reportGenerate"
