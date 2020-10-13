@@ -3,6 +3,7 @@ const pageLocators = {
     SEARCH_BAR: '#search_query_top',
     FN_LINK_PRODUCT_IN_SEARCH_RESULT: product =>
       `a.product-name[title='${product}']`,
+    SIGN_IN: '.login',
   },
   PRODUCT_DETAIL: {
     ADD_TO_CART: '#add_to_cart',
@@ -15,6 +16,7 @@ const pageLocators = {
     USERNAME: '#email',
     PASSWORD: '#passwd',
     SUBMIT_LOGIN: '#SubmitLogin',
+    ERROR_MSG: '#center_column>div.alert.alert-danger>ol>li',
   },
   ORDER: {
     TAB: {
